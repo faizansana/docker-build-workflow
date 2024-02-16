@@ -6,15 +6,13 @@ on:
   push:
     branches:
       - main
-    # don't rebuild image if someone only edited unrelated files
-    paths-ignore:
-      - 'README.md'
-      - '.github/linters/**'
+    paths:
+      - "docker/**"
+      - ".github/workflows/docker-publish.yml"
   pull_request:
-    # don't rebuild image if someone only edited unrelated files
-    paths-ignore:
-      - 'README.md'
-      - '.github/linters/**'
+    paths:
+      - "docker/**"
+      - ".github/workflows/docker-publish.yml"
 
 # cancel any previously-started, yet still active runs of this workflow on the same branch
 concurrency:
